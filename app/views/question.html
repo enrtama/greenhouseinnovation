@@ -1,0 +1,25 @@
+<section ng-repeat="question in questions" ng-show="current==$index">
+	<div>
+		<h2><span class="label label-info">{{$index + 1}}/{{countQuestions(questions)}}</span> {{question.title}}</h2>
+		<h4 class="separate">{{question.text}}</h4>
+		<form novalidate>
+			<div class="answer" ng-repeat="option in question.options" for="{{option}}">
+				<div class="radio">
+					<label>
+						<input class="css-checkbox"
+						name="option" 
+						type="radio" 
+						ng-model="$parent.selectedAnswer" 
+						ng-value="option.id"
+						ng-change='select(question.id, option.id)'/>
+						{{option.text}}
+					</label>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+<div class="center">
+	<button type="button" class="btn btn-primary btn-lg next" ng-hide="current=={{countQuestions(questions)}}" ng-click="next()" disabled>Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+</div>

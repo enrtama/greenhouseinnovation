@@ -1,0 +1,20 @@
+<toasty-container toasty-defaults='{"close-button":true}'></toasty-container>
+<div class="jumbotron questionnaire" ng-hide="show">
+  <h2>Welcome to Green House Questionnaire!</h2>
+  <p class="lead">
+    <img src="images/questionnaire.png" alt="Questionnaire"><br>
+  </p>
+  <p>{{title}}</p>
+  <p><a class="btn btn-lg btn-success" ng-click="show=true">Start! <span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<div class="questions" ng-show="show" ng-include="'views/question.html'"></div>
+
+<div class="results" ng-show="showResult">
+  <h1 class="separate">Your results!</h1>
+  <div class="center" ng-show="score===100">
+    <img src="images/perfect.png" alt="Perfect score">
+    <h3>Perfect score!</h3>
+  </div>
+  <div class="progress"></div>
+</div>
